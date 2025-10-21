@@ -71,12 +71,20 @@
           )
         );
         Carousel.Start(carouselArr);
-        document.getElementById('btt_right').addEventListener('click', () => {
-          Carousel.avancar();
-        });
-        document.getElementById('btt_left').addEventListener('click', () => {
-          Carousel.retornar();
-        });
+        const bttRight = document.getElementById('btt_right');
+        const bttLeft = document.getElementById('btt_left');
+
+        if (bttRight) {
+          bttRight.addEventListener('click', () => {
+            Carousel.avancar();
+          });
+        }
+
+        if (bttLeft) {
+          bttLeft.addEventListener('click', () => {
+            Carousel.retornar();
+          });
+        }
       </script>
     </main>
     <footer>

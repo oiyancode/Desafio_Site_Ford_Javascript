@@ -35,12 +35,9 @@ class Car {
 // Encontra a posição do carro no array pelo nome
 // Retorna o número do índice se encontrado, ou -1 se não encontrado
 function GetCarArrPosition(arr, carClass) {
-  // Percorre cada carro no array
   for (let i = 0; i < arr.length; i++) {
-    // Se encontrar um carro com o mesmo nome, retorna sua posição
     if (arr[i].nome === carClass.nome) return i;
   }
-  // Se o carro não for encontrado, retorna -1
   return -1;
 }
 
@@ -48,16 +45,13 @@ function SetCarToCompare(el, carClass) {
   // Verifica se a entrada é realmente um objeto Car
   if (carClass instanceof Car) {
     if (el.checked) {
-      // Usuário está tentando selecionar este carro
-
       // Verifica se já temos 2 carros selecionados (máximo permitido)
       if (carArr.length >= 2) {
-        // Mostra mensagem de aviso e desmarca o checkbox
         alert(
           'Você só pode selecionar 2 veículos para comparação. Desmarque um veículo antes de selecionar outro.'
         );
         el.checked = false; // Desmarca o checkbox
-        return; // Sai da função mais cedo
+        return;
       }
 
       // Verifica se este carro não está já no array de comparação
@@ -71,7 +65,6 @@ function SetCarToCompare(el, carClass) {
       // Encontra o carro no array e remove
       let position = GetCarArrPosition(carArr, carClass);
       if (position !== -1) {
-        // Remove 1 item na posição encontrada
         carArr.splice(position, 1);
       }
     }
@@ -84,23 +77,21 @@ function ShowCompare() {
   // Verifica se o usuário selecionou exatamente 2 carros
   if (carArr.length < 2) {
     alert('Precisa marcar 2 carros para apresentar a comparação');
-    return; // Sai da função se não tiver carros suficientes selecionados
+    return;
   }
 
-  // Atualiza a tabela de comparação com os carros selecionados
-  UpdateCompareTable();
-
   // Mostra o modal/popup de comparação
+  UpdateCompareTable();
   document.getElementById('compare').style.display = 'block';
 }
 
+// Esconde o modal/popup de comparação
 function HideCompare() {
-  // Esconde o modal/popup de comparação
   document.getElementById('compare').style.display = 'none';
 }
 
+// Sai da função se não tivermos exatamente 2 carros para comparar
 function UpdateCompareTable() {
-  // Sai da função se não tivermos exatamente 2 carros para comparar
   if (carArr.length < 2) return;
 
   // Define o tamanho das imagens para a tabela de comparação

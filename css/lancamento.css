@@ -74,7 +74,7 @@ div#compare {
   max-width: 800px;
   min-width: 400px;
   height: 80vh;
-  max-height: 750px;
+  max-height: 60%;
   min-height: 350px;
   background: #fff;
   top: calc(100vh - 80%);
